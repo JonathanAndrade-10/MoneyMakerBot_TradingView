@@ -1,0 +1,198 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="RiskMeterLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_TradingViewBrowser" Type="InArgument(ui:UiElement)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2433.33333333333,2400.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>RiskMeterLogin_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="66">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="RiskMeterLogin" sap:VirtualizedContainerService.HintSize="1061.33333333333,2336" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ss:SecureString" Name="TradingViewPassword" />
+      <Variable x:TypeArguments="x:String" Name="TradingViewUser" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;TradingViewCredentials&quot;).ToString]" DisplayName="Get RiskMeter Credential" sap:VirtualizedContainerService.HintSize="1019.33333333333,185.333333333333" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[TradingViewPassword]" Username="[TradingViewUser]" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser - RiskMeter" sap:VirtualizedContainerService.HintSize="1019.33333333333,2018.66666666667" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_TradingViewBrowser]" IsIncognito="False" OpenMode="Never" ScopeGuid="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do - Login" sap:VirtualizedContainerService.HintSize="985.333333333333,1880.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click 'PATH'" sap:VirtualizedContainerService.HintSize="943.333333333333,158" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="2323, 178, 20, 21" ElementType="Icon" FriendlyName="'PATH'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='button' aria-label='Open user menu' class='tv-header__user-menu-button tv-header__user-menu-button--anonymous js-header-user-menu-button' /&gt;&lt;webctrl tag='path' /&gt;" FuzzyMatches="10000" FuzzySelectorArgument="&lt;webctrl type='' class='' tag='path' aaname='' /&gt;" Guid="4e9e462c-46dc-422e-a79a-be28f389965f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAYAAAArK+5dAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAANHSURBVEhLnZTLT1NBFMbnf5FS+qa3pc/bFiQafMQVf4IaN2J0hRqjsNAQ3RTaIg+NCa+IG3XhRkDUpUR3AroWXOMfcPzOmZnbS701xkl+OTP3zv2+8800VaF4jkKxHPXEBqgnCv6hnogAzLvXLCpAVSwewkd/qyIc9desmQdXMWAzNuiN50mIBZMpDlO9MU9fd/fJDp7XG3PkFIaRiNN3IE1oVG8CQgyOqpMsxK3w281tmoYRw3Me/E6nPI5Oo1HhZJHCyQKFE0xeVyQKxws005wXofHbkzC0TeQhksOzCXk33VyQdQhpg6rqg3gfi1oTrmwAs929b0IYm+WZqb34kM34Haew66CqIqkiMWJkgRHDY6a1YJK1sfdmE9p1ENqARa2Jz4wHG/RBVEzxga1s9GxpTfaE0a2YB1QV7S+RpugRSRUEe0QR3JMf24B9b9cWfZ8aFUXHmoKHNWjMLkqHt+5MSkoPfMjPeDSQkNd+dGKNiqVL1KYoRPthZNLs7X8XoQ38NGdmFwSe89jjdF5D7eQ6iU7aNoDYn5SoUDlNTSRhMTt43mgtUt49RVEIBWHTqkSmREycSZcp7jCYMzDmapOxoW7GkPLNfWvvPpHKM0g4RcCVhYtd0KbBaX1A2KKSmTIxCQbdJxyXrt24SZtb7+no6Jc5lO6D92xg79j1cYqj+3h/GSZowjSiklkYMEjBRlvbH+TDHweH9Or1G2o9XgykaXiJPbyXBxtJSjHSqP4Bl5hU1qXl1XXZOPWoDrMKcA3cgJ27XlJdNVMP6/Lt0so6JXCXibQrZp7BmQujsmF57YWYacpS7TF2GnWul1afi8bIuVFtzAbpXIWYlTXdfeXkWYhWOrCGeu0X9TNy3jSJk0iahDBwYeDSzs4X8BlpKpJIKkT18ekkx4EZRI+tUT9BgxFTNnDyNWLebX+Uy0rnqhC11Az+Z1UjFswBNLaglcIdMsqBIHPpypjE47+G2bknhqcGu9a0umD/Vi5evgozpEIKlSnUiHHyVbo3+YAODn/Kpv8Z/O3difs4Wj5ejcoWBknAMWVhwtXJ+Rn0zTltjdI4Jg1+IN48eK0GSkPEZIswMWRgqBky+J/B0NxbV8yxO7kq/QaRJLaf6AV56gAAAABJRU5ErkJggg==" InformativeScreenshot="23a94504527e02466eeb40107f1751b9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Sign in'" sap:VirtualizedContainerService.HintSize="943.333333333333,158" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="1640, 227, 320, 40" ElementType="Button" FriendlyName="'Sign in'" FullSelectorArgument="&lt;webctrl aria-role='menuitem' tag='BUTTON' innertext='Sign in' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='menuitem' tag='BUTTON' type='' class='menuItemSquare-egvUy2Bw buttonReset-egvUy2Bw item-4TFSfyGO item-ykcJIrqq item-50IqnBef withIcon-4TFSfyGO withIcon-ykcJIrqq' aaname='Sign in' check:innerText='Sign in' /&gt;" Guid="77934628-b48f-43ef-88be-bc75a803a52e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUQAAAAsCAYAAAAdOsFFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAARySURBVHhe7d1LbxtVGIfxfh6+QD8A8AFgHdoQ27n4ksT3SxzHaUsl1oDEggVsWCK6LIIV3VRCSOzYsGOBhIQUEGxf5l+fczwdOXVce8ZqzvOTRnXeuThZ9NEZ203vfFjat517ewYAsbq6unqx3dkrH9jO/ZIbA0B8QhBL5UP7YLfsxgAQn3kQK4d2b7fixgAQnxDEchLE3T2CCCBeIYiV/arpjRUAiFUI4v5BzfbKBBFAvOZBPKxZqXLgxgAQnxDEg6O66XVEAIhVCOJhtUEQAUQtBPGo1rDKPkEEEK8QxGr92PQ6IgDEKgSxVjuxgy0G8e9/zT59Yvb+1Oyt0mzTY820DwDyFoJYb5za4VHdjYul4PkQ1j9JIvjtbNNjH0YAyFsIYqNxsrUgKn4K3zfP3CBFM+3TMQCQpxDE45OWHVUbblys95IVoLbraB+rRAB5SwWxadXqdlaIy1aAfgW5rl9+M7ub/Ii6lt8+e+J2JvRY+3Vcnop6HgCrCUE8bbWtltw2b8OyID7+ev0g/vGX2dtds/bnbpC4+PLlKD39qZhQFfU8AFYTgthsdqxe304Ql90SL7ulvgkiBGCZEMRWu2uNk1M3LlYRb6ooiLqO/lxEt7Han42mVpSapzd/m6192vy52rQK1Wr0OoueR7Odx8nP+uP8OsQbKF4IYrvdsePj7awQRStAhaChj90kgdCmx5qtuzqUf/6bRUfXS982pylM6RDpOJ2jc8XvV7jEx1Jz8c+RPmeR7PPo6+z3pcfL4gpgs0IQO52enZw23bh4Lz6YnawCfRh9CDXb5AezfcSyAZJ0qPxrjj52orn2+5nOz8ZP+26ySswGMXsOt/hA8eZB7G43iEVThLJRTIdqnSAuC1n2GH29KIj6/q67xQeweSGI3V7fms2WG8dBQUuHKBuqbPCW7ReCCLy5QhB7vUHhQfz+59nrhHcb89vY6zYdo2N/SM7ZlGyIsqHyq8TwPWRCRxCB2yUEsd8fWrPVduP8+X+n/E7PbPTF7LXCV206RsfqHIVxVYqNAubjpRgpSpp5i0KV3p9FEIHbJQRxMBhYq6Ag+g9af/WdG6xA5+hcXWMVPjDpTSFKWxSq7Dnp/QQRuF1CEIfDkbXbyd/KnP3+5+wv+qpBS/NB1bWKtiiCAG6Hl4LY6XTcOD8+Zut8lGYTUb0Jrc7SKzRFUDEkiMDtFIJ4dnZm3W7+K8T7H8+2dW3qOtfx8VN409urXlME8GabB3GUBLHTc+P86M2Ud/vuizXoDRZdCwA2JbVCHFuvv4FSLfH819lKy//3AK+z+d+urWsBwKaEII6TW+Z+L/8VougXNviP0LzOpnMX/SIIAFhHCOL5eGyDwdCNASA+IYiT83MbDgZuDADxCUG8mExsNGKFCCBemSCO3BgA4hOCOJ1OTZ9FBIBYhSBeJkEcjwkigHhlgjh2YwCITwjig+ml6aM3ABCrEMSHDy5tck4QAcQrBPFREsSLybkbA0B8QhA/evTQphcTNwaA+MyCeGX/A599z/vJ+CzrAAAAAElFTkSuQmCC" InformativeScreenshot="78bc53828d2703216bfe9ba47666c9ea.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1694, 235, 47, 24" ElementType="Text" FriendlyName="'Sign in'" FullSelectorArgument="&lt;webctrl aaname='Sign in' parentid='overlap-manager-root' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sign in' parentid='overlap-manager-root' tag='SPAN' type='' class='label-4TFSfyGO' check:innerText='Sign in' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAcCAYAAADMW4fJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFfSURBVFhH7ZQ9TsNAEEY5DxfgALkGHS0dSk3HDZAoOQESJTVtGg5AnyoNEu2QJzLO+MsEUBJ7F2s/aWV7Z+fn7c76zCakBlOrGkytajC1arowb+9mF9dm51fbcf+8Ma7FO3bWDalD83Qwy5XZbG5287CZWOv2sR/wZTEOzKF5OpixCh1SPRjaimcmjh67AnOSsS0Z3prYGO7L4PTpgn3K8jB3eWf29LqNk218B/Px+e3AwthqUQSNQViHD77I7SRFDso88hzRJ5Pm4Vvr4l03pvcDQF5ABhWT+B3zQhHz2H0Ofy0c219OR2HUJ7sWOzAuAihQTHIMjBah0jV8ZzDUF6/FXhhEMTGIJtFif7OjYjAaRJP46XhbapHFYFhIck9MIAIy58qSRLuqGIwb4yBIVJZEfaK9GMyplAGMpaNg2JW4MwAA8u9gvHBts5/u0NA6eZuVVIOpVQ2mVk0IxuwLNUBZiF55dXgAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Email'" sap:VirtualizedContainerService.HintSize="943.333333333333,158" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="1100, 644, 340, 42" FriendlyName="'Email'" FullSelectorArgument="&lt;webctrl tag='SPAN' class='tv-signin-dialog__social tv-signin-dialog__toggle-email js-show-email' innertext='*Email*' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' parentid='overlap-manager-root' tag='SPAN' type='' class='tv-signin-dialog__social tv-signin-dialog__toggle-email js-show-email' check:innerText='Email' /&gt;" Guid="a3635649-de94-4828-8b29-f310ad455b6f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVgAAAAuCAYAAABtYAEoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALkSURBVHhe7dyxilxVHMdxHyKFfZ4gYG2KtGkV7UwRsEsRSGWhlYVY+RhaWCVFXiCCXbBKAlncah0VZotlWDZXfsOe4exldvbOnDmsDJ8P/It77zlnui+XW8xHAwBdCCxAJ1cCu1icDyez+XB0PBve//mXMcaYCZNmpp1paG0V2DzIovnp2XBx8eHyLgA3STPTzjS0juwqsKlvFgCwmzQ0LS1WgU15vbkC7C4NTUuLVWDzHQGANnVLBRZgjwQWoBOBBehEYAE6EViATgQWoBOBBehEYAE6EVia3Pn4bpeBQyCwNEkM733y6fD69R+Xd3aXM3KWwHIoBJYmiWEJY0tk6zMElkMhsDQpMWyJ7Hjv1MC+eftuuP/g4XJ9PU+ffTOcne333+D+/uff4fMvHw2vfvt9ef3Djz91+R0Oi8DSpI7hLpFdt6c+c5MS2BK9ngSWXQgsTcYx3Cay1639PwZ2TGCZQmBpsi6GUyK7ac2+ApsIPn/xcvnmmTNLEH/+5dfldabsLW+o5X7OzflRfqe+J7BMIbA0SYzW2RTQTc/iujPHSvhKFDOJZ5EIJpqJZ7n+9rvvl9GNrK2f18Z781ufffGVwLIVgaXJphiuC+lNcY1tA7vpDTZTJKh1FMfRrOVMgaWVwNLkphjWQZ0S17itwNafDjL1J4HxWoFlCoGlyZQYlrBOiWvcRmDHnwtyLbC0EliaTI1heYOd4rYCW54lstn3+Osnq6DWa2McZFhHYGkyNYbb2DawWV9PCeU2gU0oE8zsL+Gs948DmzNylsiyicDSJEHatx5nwm0QWJoILFxPYGmSGPYYOAQCC9CJwAJ0IrAAnQgsQCcCC9CJwAJ0IrAAnQgsQCcCC9DJ2sAeHc+Gi4sPl1cAbCsNTUuLVWBPZvNhfup/LgF2lYampcUqsIvF+bK8WeBNFmC6NDPtTEPT0mIV2MiD1DeL8h3BGGPMzZNmpp11XONKYAHYH4EF6GIY/gOiLHxviyAG5wAAAABJRU5ErkJggg==" InformativeScreenshot="95b341d85a60e1d0f35d164995b22fd6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="False" ClickBeforeMode="None" DelayAfter="0" DisplayName="Type Into 'Username or Email'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="943.333333333333,220" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="Simulate" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Text="[TradingViewUser]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="1100, 469, 340, 44" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' name='username' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' name='username' class='tv-control-material-input tv-signin-dialog__input tv-control-material-input__control' aaname='' /&gt;" Guid="fbebc00e-a4c3-4f81-a815-77b079aaa789" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAVgAAAAwCAYAAABUvGLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAINSURBVHhe7daxihNBHMdxH8LC3s7X8ikEC0FQUUSQA0E7C7HzBcRGsTgRFa+wVmzO6qzSjfyWzLI35lyE/IvA5wNDksnsZPYg38ultvX9x8/26PGzdnb2ezvT2teTb+3eg6Nzc6/fvG23bj9sHz5+aXfvH03XjS7a68nT522z2Uyvs8+Ll6+mNfmMvL+cjzzmdWRd9uyfl/ns9+nzyV9n3GW8l5wj12d+PNto1/3Eco8Y1+X8a/e4PNfaOYDDMgd2jEUsQ9D1dQlbHsf3438Cu1zb9+7r8v5aYE9Pf02B6usuMkYuj/lHkf3WwrbrfqKft+85rsv51+4x1y4D258Dh28ObOSLnS/4jZt3prGMTkIxzvdY9Pkeh11BGiO2jHffO8F79/54/mWc+bXAZr9/nXsp1+Yz+roexvFso/G6jHxe4p7r+j7jfef8a/e4jGr/e/bXwGE7F1gA9kdgAYoILEARgQUoIrAARQQWoIjAAhQRWIAiAgtQRGABiggsQJE5sJevXN0+A2AfBBagiMACFBFYgCICC1BEYAGKCCxAEYEFKCKwAEUEFqCIwAIUEViAIgILUERgAYoILEARgQUoIrAARQQWoIjAAhSZAwvAfgksQBGBBSgisABFBBagiMACFBFYgCICC1BEYAGKCCxAEYEFKCKwAEXmwF67bhiGYexjdH7BAhQRWIASrf0BqNBOcfZYPAQAAAAASUVORK5CYII=" InformativeScreenshot="e5010de943b2afe0ea7356665d7f4cd2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1100, 459, 100, 14" ElementType="Text" FriendlyName="'Username or Email'" FullSelectorArgument="&lt;webctrl parentid='email-signin__form__3c294518-7a76-4fdd-bcb3-661fdf7fb874' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='email-signin__form__3c294518-7a76-4fdd-bcb3-661fdf7fb874' tag='SPAN' type='' class='tv-control-material-input__label i-up' aaname='Username or Email' check:innerText='Username or Email' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGgAAAASCAYAAAC3pZsGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAIrSURBVFhH7ZUxSx1REIXztwMphEAUgwSCIGhnITbBzkrSJKRIlChaWCs2pjLV6658D79l3uSua8wLXPAeWO6+uXPPnJmzu+9V6Wga3aDG0Q1qHN2gxjEYdHV9Uz583Cl3d78fIqWcX1yWtfebC7GXCGaz8najvH7zbriWNZc4d+a9tb1bZrPZw2436EmozWZZ6AYtAf/ToIh/Moj7/HpDBKHxvf2D+Tm5OMOngbjFOUsucfIA+5kbfDo4LF+/fR8+L0efvwy58Tz58ppXA/nxU4UmoLbjk7Pq+dpsAP2jB41ywuFMYi+1HtXjb3U8yyAKROGaY5PAHLhW1zfnvy0WuQB7XBkxzqpgm7GeefChm31Q0wXIo75xNbIS454HogZrO2A1WUu98PjguFd7WNQOOLMUg7hHnAWzaC8Ks2fzIheHR5GZyzir9bIRxOH7eXqxUN8rDyb2Ahwg8byXQc2xN0gOkPPQP9VjrM39sw0SNE6hHydnf5ggxrhqBpFDDZs0DlgdNHljBj02XJF7yQblwUTU+gFPNYjfYz1GXTUdg0G5GIhEwjwGw5r3wd8YFHPlNo/9KYNub3/NGzRvDHlIrH6OaoOJqPUD1CtnzkP/VI+cjQZ5LwaDABsk+BpG0RTKcYsZl7zWUB5CNF9uBsYfrm8m8SmD4HtMdwRn42fGwWZtGfkcF/V4ODgnT+4b/VM9RlOcp7/BgkEd7aEb1Di6QY2jG9Q4ukFNo5R7uvSjeZK8COwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayAfter="0" DelayBefore="0" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="943.333333333333,244.666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="Simulate" IsPassword="True" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" SecureText="[TradingViewPassword]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="716, 526, 510, 66" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='tv-control-material-input tv-signin-dialog__input tv-control-material-input__control' aaname='' /&gt;" Guid="8db39596-eb67-45a5-a4d6-644e82ad843a" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAgIAAABGCAYAAAC+E/yfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOJSURBVHhe7dldb1RVFIBh/4MX3nvn3/JXqHxYrbQlA6Ui8hmCVvGD2hARQkBboyCQCBqDIpRikSrEhIgUMXWcdtG9mZkMY6zpbdfzJDspe3r2OenNes/wVPR474OjMdLYFffvL7R3njQ3dys2v9KIsZ0HYv6X27G0tByLi4uxZ//4f153794fsWv3oRgd2xcLD/5s7z7WbDbjxMmp2Pjy1rh6bba7d+Dg4Whs3xNDIzvj5Knpun9r/tcY3LIj9q98Vp6hPEtR7lnuXa4p1/Yq1764cTh+uDLTfc6yys+9vjr3dbywYSi+PHOhvfNY5+zydwGA9WhNIXD5+6t1YH587FS0Wq26938hsLj4d7w1fiQGBrfXYd6rhMT5C5fqsP5s+kx7N+pALvd5bWgsbt/5re61WkvxzuHJut879JvNf+LgofdrTJw7f7E+Vzm3DP9XV8JheOsbcffu76uGQCdwyv3KdZ0zZq7/VJ9bCACwXq0pBMpALYO1DOP+VQbp7I2b9ffKm3j/59t27I2FhQfdodv72YbNI3Hlx5l6bdG5z+TRE7G83N5cUb41KAO//8395s/zdej3nllWCYyp6bP1jNVCoAz+Ix998q/rO0sIALBerSkEiuuzc3WolwE5MDgaE5PH6xAfabxZh+zDh3/F6U+/iC3Dr9ffeWnTcOze93bcab/ZX5u5Uf+boOyXz4dWBv7FS9/VN/CO8vZfzu3/BqF8C/DhxLEaCv3K+eU+5dwSANtG98Y3317unrtaCBTl7KnPz3aDYtNAI8bfnaj/FgIArFdPhAAAkIsQAIDEhAAAJCYEACAxIQAAiQkBAEhMCABAYkIAABITAgCQmBAAgMSEAAAkJgQAIDEhAACJCQEASEwIAEBiQgAAEhMCAJCYEACAxLoh8PQzz9YFAOQhBAAgMSEAAIkJAQBITAgAQGJCAAASEwIAkJgQAIDEhAAAJCYEACAxIQAAiQkBAEhMCABAYkIAABITAgCQmBAAgMSEAAAkJgQAIDEhAACJCQEASEwIAEBiQgAAEhMCAJCYEACAxIQAACQmBAAgMSEAAIkJAQBIrBsCAEA+QgAAEhMCAJCYEACAxIQAACQmBAAgMSEAAIkJAQBITAgAQGJCAAASEwIAkJgQAIDEhAAAJCYEACAxIQAAiQkBAEhMCABAYkIAABLrhsBzz1uWZVmWlWV1+EYAANKKeARgjfMOdoPBwAAAAABJRU5ErkJggg==" InformativeScreenshot="d2159eedc3b5578732c9a5edd95ae555.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="716, 510, 73, 21" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;webctrl aaname='Password' parentid='email-signin__form__70e1c57e-7bc7-4245-b267-d35ba7167526' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password' parentid='email-signin__form__70e1c57e-7bc7-4245-b267-d35ba7167526' tag='SPAN' type='' class='tv-control-material-input__label i-up' check:innerText='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAAZCAYAAAB0FqNRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQXSURBVFhH7Zf5U1RHEMfzZxtvRS6XBSSyoJScHghSBNRCRNAooiUYNYDcoqJcYogggSyL7fu026+G5wbZh7/xvlVTuztHd893vt0z+4tEyBoRaSEQkRYCEWkhEJEWAhFpIRCRFgLbSLvc2CoHDuX57XhOsVRduCRj41OytfUlPWv/4NOnFSmInVVeXOxImrVfD+dLc8sNSaVS6Zn7A7smjUlMBhsbG/Lns0E5lVcqR0/EZHr6rfbvF4QizfCwr18VNzg0mu7ZH9gTafcfPFbS/hoclZbWm9tSNzf/jNzqvCvJZDI923O2sir1F6/J4WOFmtpFxZXSP/Bcx0jxnnsP5WRuia7n8/f2W7K29q80XGqRHE/Vc/OLOhdgt7GpTRY/LKV7vqGjs0fyC3+TpaW/9ffCwge5UHPF91kQK5eBpy/8WkzWVJyv1zbv2U+cq9N5+Nzc/FZ2pl69kbLyau3HTl1Ds8aXFWk4etL/zLsQ4v5mXo6My6GjBduIo7W2dcgXL75kclNq6q5+N45awaPHTzUod4zNss5sc0gGSgKlAZIMK96hFJVU6oZTqS15/WbGPwS34ae7p1fjMtJKyqqUGJtzp+eB2nz+YliJctdb+yFpmRa5zoOAyMKihMRLz8nq5zU/OPoWF7erAxAkxKCCoD0jgxsbhTFuyqafcQC5R47H9BPSII8Yb3Z0e/7/U3WNjE5IXkGZr0aLC1uVVQ2ysvpZD4pmfrHZ92hA+7AxNDymgsmKNJgvr6jV4GyDGONyIOVcxbgK5dRw1tV9X9bX17XP8PHjssSKK6S6tlFTLkgcikI1s7PzOs7Grza3axno7Xvik2QkWt0xol1wQMRGLTbSTnl2goc5ODSiezHVGfZU0wzUo6Zr132i3BZcNze3IFXVl1VVtfVNsrz8T3pEPCI35PqNLjl2Mi6n4wl9Bxp5lo5sAAJj8QolGsWdTdTI25n3kusRaenK70xqAJBFbC5pico69e/CJdfFTyHNNlTq1YWZd7OqOgvm/9ZBFpst9tKXlHCBMkgpFD06Nun3oRrIQmUuOTmeAs97Y+7zxzaWSWmsRUHDL8f9OGl8d2GvA7eWgp9Cmp1cW3unqg78iDRqDEpDDWzcBaTbxeCmht3WvA9nPcUCS0v6XYKoP3ZrUo+IC7sQRZoHa1om0kwM+GOd2RifeLW7mrYTaTgnCAIPNpxOTr3WeZxwcNxqkAXojpHC1E2D+SEl3ZqHGiEnqIhsbs9MpO1Udmh7Ig1MTE4rARjjvyl/r9gw7yIC4r11u+sPLdzMOXgkX99E1DhA/SJV6Wc8zyPHfU8BVIXdoDJRF5eCvc1cYB8/2IUsLiouLLO7E2kA2913e33yuUnrL+7inRZhd4hIC4GItBCISAuBiLSsIfIV9X0fo7Yqga4AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DelayBefore="0" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="943.333333333333,158" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="b5ddfc6d-ba8e-4a29-8e28-bf9106d5d694" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.tradingview.com/" DesignTimeRectangle="1061, 695, 165, 69" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;&lt;webctrl parentid='email-signin__submit-button*' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' parentid='email-signin__submit-button__70e1c57e-7bc7-4245-b267-d35ba716752*' tag='SPAN' class='tv-button__loader' aaname='' /&gt;" Guid="c753a435-6f2f-48a6-8428-bc2309ac05bc" ImageBase64="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" InformativeScreenshot="2335a882f70a49e94963fac6005239dd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;" SearchSteps="Selector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Pick DisplayName="Pick - Check if credentials are valid" sap:VirtualizedContainerService.HintSize="943.333333333333,449.333333333333" sap2010:WorkflowViewState.IdRef="Pick_1">
+              <PickBranch DisplayName="PickBranch - Login succeed" sap:VirtualizedContainerService.HintSize="384.666666666667,403.333333333333" sap2010:WorkflowViewState.IdRef="PickBranch_1">
+                <PickBranch.Trigger>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'SEARCH'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_3">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="05d4d15d-89be-4515-a844-f07af140e205" InformativeScreenshot="807e16342e45cfa50d125a4f17bf3bfc" Selector="&lt;html app='chrome.exe' title='TradingView – Track All Markets' /&gt;&lt;webctrl tag='BUTTON' aria-label='Search' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </PickBranch.Trigger>
+                <ui:LogMessage DisplayName="Log Message - login succeed" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;TradingView login succeed&quot;]" />
+              </PickBranch>
+              <PickBranch DisplayName="PickBranch - Invalid credentials" sap:VirtualizedContainerService.HintSize="384.666666666667,403.333333333333" sap2010:WorkflowViewState.IdRef="PickBranch_2">
+                <PickBranch.Trigger>
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find Element 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
+                    <ui:WaitUiElementAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="316067bc-fda7-448a-9f4a-5cb1481188ca" InformativeScreenshot="a437b336ec342e1d5eb6b48e989c0ceb" Selector="&lt;html app='chrome.exe' /&gt;&lt;webctrl tag='DIV' aaname='Nombre de usuario o contraseña incorrectos' class='tv-dialog__error' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:WaitUiElementAppear.Target>
+                  </ui:WaitUiElementAppear>
+                </PickBranch.Trigger>
+                <Throw DisplayName="Throw BE: Invalid credentials" Exception="[new BusinessRuleException(&quot;TradingView credentials are invalid. User: &quot; + TradingViewUser)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </PickBranch>
+            </Pick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
